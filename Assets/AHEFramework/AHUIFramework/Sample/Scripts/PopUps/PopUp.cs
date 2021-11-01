@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-using AHEFramework.UI;
+using AHEFramework.UIFramework;
 
 
 namespace GameNameSpace.UI

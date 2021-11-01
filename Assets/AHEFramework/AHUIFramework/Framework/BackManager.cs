@@ -3,9 +3,9 @@ using UnityAction = UnityEngine.Events.UnityAction;
 
 using System.Collections.Generic;
 
-namespace AHEFramework.UI
+namespace AHEFramework.UIFramework
 {
-    public class BackManager : MonoBehaviour
+    public sealed class BackManager : MonoBehaviour
     {
         private static BackManager instance;
         public static BackManager Instance { get { if (!instance) instance = new GameObject("BackManager").AddComponent<BackManager>(); return instance; } }

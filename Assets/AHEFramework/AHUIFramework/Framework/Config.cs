@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 
-namespace AHEFramework.UI
+namespace AHEFramework.UIFramework
 {
     [CreateAssetMenu(fileName ="Config",menuName = "AHEUIFramework/ New Config",order = 51)]
     public class Config : ScriptableObject

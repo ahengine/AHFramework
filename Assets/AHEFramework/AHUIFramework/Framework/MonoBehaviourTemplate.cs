@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace AHEFramework.UI
+namespace AHEFramework.UIFramework
 {
     public abstract class MonoBehaviourUI<T> : MonoBehaviourUIBase where T : MonoBehaviourUI<T>
     {

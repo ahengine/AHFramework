@@ -50,33 +50,17 @@ public class ConsoleUtility : MonoBehaviour
 
 
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(toggleKey))
-        {
             show = !show;
-        }
     }
 
-    public void ShowConsole()
-    {
-        show = !show;
-    }
-    void OnGUI()
+    public void ShowConsole() => show = !show;
+    private void OnGUI()
     {
         if (show)
-        {
             windowRect = GUILayout.Window(123456, windowRect, ConsoleWindow, "Console");
-        }
-
-        //		float h = Screen.height/2f;
-        //		float w = Screen.width/2f;
-        //		
-        //		if(GUI.Button(new Rect(w-25f,h-25f,50f,50f),"Console")){
-        //			
-        //			ShowConsole();
-        //		}
-
     }
 
     /// <summary>

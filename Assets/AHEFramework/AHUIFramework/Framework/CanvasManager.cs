@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace AHEFramework.UI
+namespace AHEFramework.UIFramework
 {
-    public class CanvasManager : MonoBehaviour
+    public sealed class CanvasManager : MonoBehaviour
     {
         private const string PrefabAddress = "UI/Pages/Canvas";
         private const string PrefabLandscapeAddress = "UI/Pages/CanvasLandscape";

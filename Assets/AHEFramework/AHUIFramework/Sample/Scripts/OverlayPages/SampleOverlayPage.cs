@@ -1,4 +1,4 @@
-﻿using AHEFramework.UI;
+﻿using AHEFramework.UIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 

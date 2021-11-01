@@ -3,9 +3,9 @@
 //using KidsGame.UI;
 
 
-namespace AHEFramework.UI
+namespace AHEFramework.UIFramework
 {
-    public class ConfigPages
+    public static class ConfigPages
     {
         public static string GetPathByType(System.Type type)
         {
@@ -28,22 +28,22 @@ namespace AHEFramework.UI
             return null;
         }
 
+
+        // ----------------------------PAGE ADDRESS----------------------------------------------------
         public static string GetPagesPath(System.Type type)
         {
             string address = "";
 
-            // PAGE ADDRESS
-
             address +=
                 //                         PREFAB NAMES  
                 //type == typeof(HomePage) ? "HomePage" :
-                //type == typeof(HUDPage) ? "HUDPage" :
-                //type == typeof(ShopPage) ? "ShopPage" :
                 "";
 
              return (!string.IsNullOrEmpty(address) ? "UI/Pages/":"") + address;
         }
 
+         
+        // ----------------------------POPUPS ADDRESS----------------------------------------------------
         public static string GetOverlayPagesPath(System.Type type)
         {
             string address = "";
@@ -57,6 +57,8 @@ namespace AHEFramework.UI
             return (!string.IsNullOrEmpty(address) ? "UI/OverlayPages/" : "") + address;
         }
 
+
+        // ----------------------------OVERLAY PAGE ADDRESS----------------------------------------------------
         public static string GetPopUpsPath(System.Type type)
         {
             string address = "";
@@ -66,20 +68,14 @@ namespace AHEFramework.UI
             address +=
              //                         PREFAB NAMES  
 //             type == typeof(AuthTypePopUp) ? "AuthTypePopUp" :
-//             type == typeof(AuthPhoneNumPopUp) ? "AuthPhoneNumPopUp" :
-//             type == typeof(AuthLoginPopUp) ? "AuthLoginPopUp" :
-//             type == typeof(AuthGuestLoginPopUp) ? "AuthGuestLoginPopUp" :
-//             type == typeof(RulesPopUp) ? "RulesPopUp" : 
-//             type == typeof(PopUp) ? "PopUp" :
-//             type == typeof(ChangeBackgroundPopUp) ? "ChangeBackgroundPopUp" :
-//             type == typeof(SettingsPopUp) ? "SettingsPopUp" :
-//             type == typeof(FreeCoinPopUp) ? "FreeCoinPopUp" :
-//             type == typeof(EditProfilePopUp) ? "EditProfilePopUp" :
+
                 "";
 
             return (!string.IsNullOrEmpty(address) ? "UI/PopUps/" : "") + address;
         }
 
+
+        // ----------------------------OVERLAY POPUPS ADDRESS----------------------------------------------------
         public static string GetOverlayPopUpsPath(System.Type type)
         {
             string address = "";

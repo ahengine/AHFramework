@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 using IEnumerator = System.Collections.IEnumerator;
 
-namespace AHEFramework.UI
+namespace AHEFramework.UIFramework
 {
     public abstract class MonoBehaviourUIBase : MonoBehaviour
     {
