@@ -18,8 +18,8 @@ namespace AHEFramework.UIFramework
             [SerializeField] float changeDuration = .1f;
             [SerializeField,Range(0.5f,1)] float value = .75f;
 
-            public void Show(Image img) => Tween.ImageAlphaLerp(img, value, changeDuration, false);
-            public void Hide(Image img) => Tween.ImageAlphaLerp(img, 0, changeDuration, false);
+            public void Show(Image img) => Tween.TweenLerp.ImageAlphaLerp(img, value, changeDuration, false);
+            public void Hide(Image img) => Tween.TweenLerp.ImageAlphaLerp(img, 0, changeDuration, false);
         }
         public BlackScreenClass BlackScreenHelper;
     }

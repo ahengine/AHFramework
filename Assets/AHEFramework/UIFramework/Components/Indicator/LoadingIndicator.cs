@@ -3,7 +3,7 @@
 
 using UnityEngine;
 
-namespace AjiMaji.UI.Components
+namespace AHFramework.UIFramework.Components
 {
     public class LoadingIndicator : MonoBehaviour
     {
