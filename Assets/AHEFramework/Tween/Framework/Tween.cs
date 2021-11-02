@@ -17,35 +17,9 @@ namespace AHEFramework.Tween
 
         public static Coroutine StopTween { set { if (value != null) { Instance.StopCoroutine(value); value = null; } } }
 
-        #region MoveTowardsTo
-
-        // Base
-        public delegate bool MoveTowardsEndConditionAction();
-        public Coroutine Towards(bool scaledTime, MoveTowardsEndConditionAction endConditionAction, UnityAction updateAction, UnityAction endAction) =>
-            StartCoroutine(TowardsCoroutine(scaledTime, endConditionAction, updateAction, endAction));
-        private IEnumerator TowardsCoroutine(bool scaledTime, MoveTowardsEndConditionAction endConditionAction, UnityAction updateAction, UnityAction endAction)
-        {
-            float timer = 0;
-            while (true)
-            {
-                timer += scaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
-                updateAction?.Invoke();
-                yield return new WaitForEndOfFrame();
-
-                if (endConditionAction())
-                {
-                    endAction?.Invoke();
-                    break;
-                }
-            }
-        }
-        #endregion
-
-        #region LerpTo
-
-        public Coroutine LerpTo(float duration, bool scaledTime, UnityAction<float> updateAction, UnityAction endAction) =>
-            StartCoroutine(LerpToCoroutine(duration, scaledTime, updateAction, endAction));
-        private IEnumerator LerpToCoroutine(float duration, bool scaledTime, UnityAction<float> updateAction, UnityAction endAction)
+        public Coroutine DoTween(float duration, bool scaledTime, UnityAction<float> updateAction, UnityAction endAction) =>
+            StartCoroutine(TweenCoroutine(duration, scaledTime, updateAction, endAction));
+        private IEnumerator TweenCoroutine(float duration, bool scaledTime, UnityAction<float> updateAction, UnityAction endAction)
         {
             float timer = 0;
             while (true)
@@ -61,6 +35,5 @@ namespace AHEFramework.Tween
                 }
             }
         }
-        #endregion
     }
 }

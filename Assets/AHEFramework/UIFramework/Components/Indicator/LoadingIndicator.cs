@@ -10,17 +10,13 @@ namespace AHFramework.UIFramework.Components
         public UnityEngine.UI.Image maskImage;
 
         [SerializeField] Vector2 amountRange = new Vector2(.2f, .8f);
+        [SerializeField] float amountSpeed = 2, rotateSpeed = 3;
         private float amountTarget;
-        [SerializeField] float amountSpeed = 2;
-        [SerializeField] float rotateSpeed = 3;
 
         private Transform maskTr;
-        private Vector3 rotation;
+        private Vector3 localEulerAngles;
 
-        private void Awake()
-        {
-            maskTr = maskImage.transform;
-        }
+        private void Awake() => maskTr = maskImage.transform;
 
         private void OnEnable()
         {
@@ -37,19 +33,19 @@ namespace AHFramework.UIFramework.Components
                 if (amountTarget == amountRange.x)
                 {
                     amountTarget = amountRange.y;
-                    rotation.z += 360f * maskImage.fillAmount;
+                    localEulerAngles.z += 360f * maskImage.fillAmount;
                     maskImage.fillClockwise = true;
                 }
                 else
                 {
                     amountTarget = amountRange.x;
-                    rotation.z -= 360f * maskImage.fillAmount;
+                    localEulerAngles.z -= 360f * maskImage.fillAmount;
                     maskImage.fillClockwise = false;
                 }
             }
 
-            rotation.z -= rotateSpeed * Time.deltaTime;
-            maskTr.localEulerAngles = rotation;
+            localEulerAngles.z -= rotateSpeed * Time.deltaTime;
+            maskTr.localEulerAngles = localEulerAngles;
         }
     }
 }
