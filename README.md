@@ -10,8 +10,9 @@ Features:
 
 - UI Framework
 - API Service
-- Helpers [Tween,Global Coroutine, ...]
-- Patterns
+- Tween [Duration, Lerp, MoveTowards]
+- Global Coroutine
+- Patterns [Singleton, Object Pool]
 
 
 Used in Many Projects: 
