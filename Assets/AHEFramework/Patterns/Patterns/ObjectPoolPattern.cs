@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AHFramework.Pattern
+namespace AHEFramework.Pattern
 {
     public abstract class ObjectPoolPattern<T> where T : MonoBehaviour
     {
@@ -41,11 +41,51 @@ namespace AHFramework.Pattern
                     items[i].gameObject.SetActive(false);
         }
     }
-
-    public abstract class ObjectPoolPatternMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class ObjectPoolPattern
     {
-        [SerializeField] T _prefab;
-        private List<T> items = new List<T>();
+        [SerializeField] GameObject _prefab;
+        private List<GameObject> items = new List<GameObject>();
+
+        public GameObject Get
+        {
+            get
+            {
+                for (int i = 0; i < items.Count; i++)
+                    if (!items[i].activeSelf)
+                        return items[i];
+
+                GameObject newItem = GameObject.Instantiate(_prefab).GetComponent<GameObject>();
+                items.Add(newItem);
+                return newItem;
+            }
+        }
+        public GameObject GetActive
+        {
+
+            get
+            {
+                var item = Get;
+                item.SetActive(true);
+                return item;
+            }
+
+        }
+
+
+        public void Off()
+        {
+            for (int i = 0; i < items.Count; i++)
+                if (!items[i].activeSelf)
+                    items[i].SetActive(false);
+        }
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    public abstract class ObjectPoolPatternMonoBehaviour<T> : MonoBehaviour where T : Component
+    {
+        [SerializeField] protected T _prefab;
+        protected List<T> items = new List<T>();
 
         public T Get
         {
@@ -62,7 +102,6 @@ namespace AHFramework.Pattern
         }
         public T GetActive
         {
-
             get
             {
                 var item = Get;
@@ -72,7 +111,6 @@ namespace AHFramework.Pattern
 
         }
 
-
         public void Off()
         {
             for (int i = 0; i < items.Count; i++)
@@ -80,5 +118,41 @@ namespace AHFramework.Pattern
                     items[i].gameObject.SetActive(false);
         }
     }
+    public abstract class ObjectPoolPatternMonoBehaviour : MonoBehaviour
+    {
+        [SerializeField] protected GameObject _prefab;
+        protected List<GameObject> items = new List<GameObject>();
 
+        public GameObject Get
+        {
+            get
+            {
+                for (int i = 0; i < items.Count; i++)
+                    if (!items[i].activeSelf)
+                        return items[i];
+
+                GameObject newItem = GameObject.Instantiate(_prefab).GetComponent<GameObject>();
+                items.Add(newItem);
+                return newItem;
+            }
+        }
+        public GameObject GetActive
+        {
+
+            get
+            {
+                var item = Get;
+                item.SetActive(true);
+                return item;
+            }
+
+        }
+
+        public void Off()
+        {
+            for (int i = 0; i < items.Count; i++)
+                if (!items[i].activeSelf)
+                    items[i].SetActive(false);
+        }
+    }
 }
