@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using IEnumerator = System.Collections.IEnumerator;
 
 
-namespace AHEFramework.GlobalCoroutine
+namespace AHEFramework
 {
     public class GlobalCoroutine : MonoBehaviour
     {
