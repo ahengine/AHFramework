@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace AHEFramework.Pattern
 {
+    [System.Serializable]
     public class ObjectPoolPattern<T> where T : MonoBehaviour
     {
         [SerializeField] T _prefab;
@@ -41,6 +42,8 @@ namespace AHEFramework.Pattern
                     items[i].gameObject.SetActive(false);
         }
     }
+    
+    [System.Serializable]
     public class ObjectPoolPattern
     {
         [SerializeField] GameObject _prefab;
@@ -54,7 +57,7 @@ namespace AHEFramework.Pattern
                     if (!items[i].activeSelf)
                         return items[i];
 
-                GameObject newItem = GameObject.Instantiate(_prefab).GetComponent<GameObject>();
+                GameObject newItem = GameObject.Instantiate(_prefab);
                 items.Add(newItem);
                 return newItem;
             }
@@ -131,7 +134,7 @@ namespace AHEFramework.Pattern
                     if (!items[i].activeSelf)
                         return items[i];
 
-                GameObject newItem = GameObject.Instantiate(_prefab).GetComponent<GameObject>();
+                GameObject newItem = GameObject.Instantiate(_prefab);
                 items.Add(newItem);
                 return newItem;
             }
