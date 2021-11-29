@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AHEFramework.Pattern
 {
-    public abstract class ObjectPoolPattern<T> where T : MonoBehaviour
+    public class ObjectPoolPattern<T> where T : MonoBehaviour
     {
         [SerializeField] T _prefab;
         private List<T> items = new List<T>();
@@ -41,7 +41,7 @@ namespace AHEFramework.Pattern
                     items[i].gameObject.SetActive(false);
         }
     }
-    public abstract class ObjectPoolPattern
+    public class ObjectPoolPattern
     {
         [SerializeField] GameObject _prefab;
         private List<GameObject> items = new List<GameObject>();
