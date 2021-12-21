@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace GameNameSpace.UI
 {
-    public class SamplePage : MonoBehaviourUI<SamplePage>
+    public class SamplePage : MonoBehaviourUIResourceBase<SamplePage>
     {
         [SerializeField] Button openPopUpBtn;
 

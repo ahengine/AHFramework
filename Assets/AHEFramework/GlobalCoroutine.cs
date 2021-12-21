@@ -14,6 +14,8 @@ namespace AHEFramework
 
         public static Coroutine Run(IEnumerator coroutine) => Instance.StartCoroutine(coroutine);
 
+        public static void Stop(Coroutine coroutine) => Instance.StopCoroutine(coroutine);
+
         public static Coroutine InvokeAction(UnityAction action, float delay, bool scaledTime = true) => Instance.StartCoroutine(Instance.InvokeActionCoroutine(action, delay, scaledTime));
         private IEnumerator InvokeActionCoroutine(UnityAction action, float delay, bool scaledTime)
         {

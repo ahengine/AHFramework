@@ -17,7 +17,9 @@ namespace AHEFramework.UIFramework
         public bool HaveAction => actions.Count > 0;
         public int ActionCount => actions.Count;
 
-        public bool AllowBack = true;
+        public bool AllowBack { get; private set; } = true;
+
+        public void SetAllowBack(bool value) => AllowBack = value;
 
         public UnityAction AddBack { set => actions.Add(value); } 
         public void RemoveAllBacks() => actions.Clear();
@@ -76,7 +78,7 @@ namespace AHEFramework.UIFramework
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && AllowBack)//&& !AjiMaji.UI.LoadingPage.Instance.show)
+            if (Input.GetKeyDown(KeyCode.Escape) && AllowBack)
                 ApplyBack();
         }
     }

@@ -7,7 +7,7 @@ using AHEFramework.UIFramework;
 
 namespace GameNameSpace.UI
 {
-    public class PopUp : MonoBehaviourUI<PopUp>
+    public class PopUp : MonoBehaviourUIResourceBase<PopUp>
     {
         public const string PageAddress = "PopUp";
 
